@@ -1,0 +1,19 @@
+                    // if (!is_float($_POST['prix'])) {
+                    //     $champNonValide = true;
+                    //     $formRemplie = false;
+                    //     $_SESSION['error'][$key] = "Ce champ doit etre un float";
+                    //     echo $_SESSION['error'][$key];
+                    //     // var_dump($_POST['prix'] );
+                    // } else {
+                    //     unset($_SESSION['error']);
+                    // }
+
+                    // if (!is_int($_POST['idCategorie'])) {
+                    //     $champNonValide = true;
+                    //     $formRemplie = false;
+                    //     $_SESSION['error'][$key] = "Ce champ doit etre un int";
+                    //     echo ($_POST['idCategorie']);
+                    //     // var_dump($_SESSION['error'][$key]);  
+                    // } else {
+                    //     unset($_SESSION['error']);
+                    // }

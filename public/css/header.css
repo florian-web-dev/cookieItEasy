@@ -1,0 +1,93 @@
+/* 
+.header-Desserts{
+    background-image:linear-gradient(rgb(2 2 2 / 38%), rgba(10, 10, 10, 0.22)), url(../img/header/Desserts.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    height: 80vh;
+}
+.header-Salades{
+    background-image:linear-gradient(rgb(2 2 2 / 38%), rgba(10, 10, 10, 0.22)), url(../img/header/Salades.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    height: 80vh;
+}
+.header-Hamburgers{
+    background-image:linear-gradient(rgb(2 2 2 / 38%), rgba(10, 10, 10, 0.22)), url(../img/header/Hamburgers.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    height: 80vh;
+}
+.header-Boissons{
+    background-image:linear-gradient(rgb(2 2 2 / 38%), rgba(10, 10, 10, 0.22)), url(../img/header/Boissons.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    height: 80vh;
+} */
+.header-Home{
+    background-image:linear-gradient(rgb(2 2 2 / 38%), rgba(10, 10, 10, 0.22)), url(../img/header/Hamburger-Home.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+    height: 80vh;
+}
+
+.menu-nav{
+    /* background-color: #00ffff30;
+    background-color: rgb(255 255 255 / 27%); */
+    background: linear-gradient(0deg, #00ffff00, #00ffff5c 50%, #00ffff00);
+
+    /* position: fixed; */
+    z-index: 10;
+    margin: auto;
+    /* width: 100%; */
+}
+
+.logo{
+    /**/
+    width:5vw;
+    background-color: rgb(255 255 255 / 60%);
+    border-radius: 50%;
+    margin: 1em 2em;
+}
+.nav-item{
+    padding: 1rem;
+    /* font-family: 'Open Sans Condensed', sans-serif;
+    font-size: larger;
+    letter-spacing: .1rem; */
+}
+.nav-link{
+    text-decoration: none;
+    color: black;
+    /* padding: 1rem; */
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: larger;
+    letter-spacing: .1rem;
+}
+.nav-link:hover{
+    /* background-color: snow; */
+    color: black;
+    box-shadow: inset 0px 0px 2px 2px #fffafa3d;
+    border-radius: 1rem;
+}
+.dropdown-item:hover, .dropdown-item:focus{
+    background-color:transparent;
+}
+#deroulant{
+    /* background-color: #6f97975c; */
+    /* background: linear-gradient(36deg, #00ffff00, #00ffff2b 20%, #00ffff00), 
+                linear-gradient(229deg, #00ffff00, #00ffff42 20%, #00ffff00); */
+    background: linear-gradient(36deg, #00ffff00, #00ffff2b 20%, #00ffff00), 
+                    linear-gradient(0deg, #00ffff2e, #00ffff0f 40%, #00ffff21);
+
+    /* background: linear-gradient(0.25turn, #00ffff00, #00ffff5c, #00ffff00); */
+}
+

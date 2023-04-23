@@ -1,0 +1,325 @@
+    case "traitementInscription":
+        //@todo 
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            // $errors = [];
+
+            if (!empty($_POST)) {
+
+                if (isset($_POST['prenom'], $_POST['nom'], $_POST['adresse'], $_POST['ville'], $_POST['codepostal'], $_POST['email'], $_POST['mdp'], $_POST['mdp_confirm'])) {
+
+                    $champNonValide = true;
+                    $formRemplie = false;
+
+                    // $regAdress = '/(?:[0-9.-]+[ ]?)+(?:Avenue|avenue|Boulevard|boulevard|rue|Rue) [a-zA-Z]+/';
+                    $regCodePost = '/[0-9]{5}/';
+
+                    foreach ($_POST as $key => $value) {
+
+
+                        $$key = filter_var($value, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                        $$key = trim($$key);
+
+                        $trimE = trim($_POST[$key][$value]);
+
+                         var_dump( $_POST);
+                         
+                        var_dump($trimE);
+                        echo $_POST['prenom'];
+                        exit;
+                        
+                        switch ($key) {
+
+                            case $key:
+
+                                if (empty($value)) {
+                                    $champNonValide = true;
+                                    $formRemplie = false;
+                                    $_SESSION['erreur'][$value] = "Tous les champs doivent entre remplis.";
+                                } else {
+                                    unset($_SESSION['erreur']);
+
+                                    $formRemplie = true;
+                                    switch ($key) {
+                                        case 'prenom':
+                                            $prenom = ucfirst($prenom);
+                                            break;
+
+                                        case 'nom':
+                                            $nom = strtoupper($nom);
+                                            break;
+
+                                            // case 'adresse':
+                                            //     if (!preg_match($regAdress, $adresse)) {
+                                            //         
+                                            //         echo 'Ce n\'est pas le format attendu. adresse';
+                                            //     }
+                                            //     break;
+
+                                        case 'ville':
+                                            $ville = ucfirst($ville);
+                                            break;
+
+                                        case 'codepostal':
+                                            if (!preg_match($regCodePost, $codepostal)) {
+                                                $champNonValide = true;
+                                                $_SESSION['erreur'] = 'Ce n\'est pas le format attendu code postal.';
+                                            } else {
+                                                unset($_SESSION['erreur']);
+                                            }
+                                            break;
+
+                                        case 'email':
+                                            $$key = filter_var($value, FILTER_SANITIZE_EMAIL);
+                                            if (!filter_var($value, FILTER_SANITIZE_EMAIL)) {
+                                                $champNonValide = true;
+                                                $_SESSION['erreur'] = 'E-mail non valide';
+                                            } else {
+                                                unset($_SESSION['erreur']);
+                                            }
+                                            break;
+
+                                        default:
+                                            break;
+                                    }
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    $mdp1 = filter_var($_POST['mdp'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+                    $mdp_confirm = filter_var($_POST['mdp_confirm'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+                    $mdp1 = hash('sha256', $mdp1);
+                    $mdp_confirm = hash('sha256', $mdp_confirm);
+
+
+
+                    echo  $_SESSION['erreur'];
+
+
+                    echo $$key;
+
+                    var_dump($_POST);
+                    header('Location: view/traitement.php');
+
+
+
+                    if ($champNonValide === false && $formRemplie === true) {
+
+                        if ($mdp1 != $mdp_confirm) {
+                            $_SESSION['erreur'] = "Les mots de passe ne sont pas identiques.";
+                        } else {
+                            unset($_SESSION['erreur']);
+
+                            $ogjClientManager = new ClientManager($lePDO);
+
+                            var_dump($objClient);
+
+
+
+                            // $objClient->setPrenom($prenom);
+                            // $objClient->setNom($nom);
+                            // $objClient->setAdresse($adresse);
+                            // $objClient->setVille($ville);
+                            // $objClient->setCodePostal($codepostal);
+                            // $objClient->setEmail($email);
+                            // $objClient->setMdp($mdp1);
+
+
+                            $ogjClientManager->addClient($objClient);
+                        }
+                        // $objClient = new Client();
+
+
+                    } else {
+                        $_SESSION['erreur'] = 'Il y a au moins un champ qui n\'est pas valide ou un champ vide.';
+                    }
+                } else {
+                    $_SESSION['erreur'] = 'post name n\'a pas etet declaré ou est null';
+                }
+            } else {
+                $_SESSION['erreur'] = 'post est vide';
+            }
+        } else {
+            $_SESSION['erreur'] = "Erreur de méthode.";
+        }
+        var_dump($_SESSION['erreur']);
+
+
+
+        
+        //    var_dump($objClient);
+        //     require 'view/traitement.php';
+        //     exit; 
+
+        //header('Location:./?path=main&action=formInscription');
+        //require("view/client/inscription.php");
+
+// $user = New Utilisateur;
+// $user->setPseudonyme($pseudo);
+// $user->setEmail($email);
+// $user->setMdp($mdp);
+
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['pseudo'], $_POST['email'], $_POST['mdp'], $_POST['confMdp'])) {
+
+        $emptyField = false;
+        $formOk = true;
+
+        $regPseudo = '/^[\w](?!.*?\.{2})[\w.]{3,20}[\w]$/';
+        $regEmail = '/^[a-z0-9]+([-|.]{1}[a-z0-9]+)?[@]{1}[a-z0-9]+[.]{1}[a-z]+$/';
+        $regMdp = '/[A-Za-z0-9]{8,30}/';
+
+
+        foreach ($_POST as $key => $val) {
+
+            if ($key != 'email') {
+
+                $$key = filter_var($val, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            }
+
+            switch ($key) {
+                case $key:
+
+                    $$key = trim($$key);
+
+                    if (empty($val)) {
+                        $emptyField = true;
+                        $formOk = false;
+                        $_SESSION['error'][$key] = "Ce champ est requis";
+                    } else {
+
+                        unset($_SESSION['error']);
+
+                        switch ($key) {
+                            case 'pseudo':
+
+                                if (!preg_match($regPseudo, $pseudo)) {
+
+                                    $_SESSION['error']['regPseudo'] = 'C\'est pas bon retape ca';
+                                    $formOk = false;
+                                } else {
+
+                                    unset($_SESSION['error']['regPseudo']);
+                                }
+
+                                break;
+
+                            case 'email':
+
+                                $$key = filter_var($val, FILTER_SANITIZE_EMAIL);
+
+                                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                                    $formOk = false;
+                                    $_SESSION['error']['email'] = "Email non valide";
+                                } else {
+
+                                    unset($_SESSION['error']['email']);
+                                }
+
+                                break;
+
+                            case 'mdp':
+
+                                if (!preg_match($regMdp, $mdp)) {
+
+                                    $_SESSION['error']['regMdp'] = 'Mot de passe invalide mamen';
+                                    $formOk = false;
+                                } else {
+
+                                    unset($_SESSION['error']['regMdp']);
+                                }
+
+                                break;
+                        }
+                    }
+
+                    break;
+            }
+            $_SESSION[$key] = $$key;
+        }
+
+
+        if ($mdp != $confMdp) {
+            $formOk = false;
+            $_SESSION['error']['difMdp'] =  "Les deux mdp ne correspondent pas";
+        } else {
+
+            unset($_SESSION['error']['difMdp']);
+        }
+
+
+        $unPDO = etablirCo();
+        $userManager = new UtilisateurManager($unPDO);
+        $checkPseudo = $userManager->readUserByPseudo($pseudo);
+        $checkEmail = $userManager->readUserByEmail($email);
+
+        // $rowP = $checkPseudo->rowCount();
+        // $rowE = $checkEmail->rowCount();
+        // if($rowP == 0)
+        // {
+        //     $dispoPseudo = "Ce pseudo est disponible";
+        // }
+
+        if ($checkPseudo == false) {
+
+            $dispoPseudo = "Ce pseudo est disponible";
+            $_SESSION['dispo'] = $dispoPseudo;
+            $pseudoOk = true;
+        } else {
+
+            $dispoPseudo = "Ce pseudo est deja utilise";
+            $_SESSION['dispo'] = $dispoPseudo;
+            $pseudoOk = false;
+        }
+
+        if ($checkEmail == true) {
+            $dispoEmail = "cet email est deja utilise";
+            $_SESSION['dispoEmail'] = $dispoEmail;
+            $emailOk = false;
+        } else {
+            $emailOk = true;
+        }
+
+        $mdp = md5($mdp);
+        $mdp = substr($email, 5) . $mdp . substr($email, -3);
+
+        // $keySlt = substr($email, -8);
+        // $keyC = $keySlt.md5($email).time();
+        // $keyC = strval($keyC);
+
+
+        if ($emptyField === false && $formOk === true && $pseudoOk === true && $emailOk === true) {
+
+            $user = new Utilisateur;
+            $user->setPseudonyme($pseudo);
+            $user->setEmail($email);
+            $user->setMdp($mdp);
+            $userCreate = $userManager->createUser($user);
+
+            $_SESSION['success'] = "Votre compte a bien ete creer";
+            unset($_SESSION['error']);
+            header('location:./?path=main&action=login');
+            // die;
+            exit;
+        } else {
+
+            unset($_SESSION['success']);
+            header('location:./?path=main&action=formInscription');
+            // die;
+            exit;
+        }
+    }
+} else {
+    $_SESSION['error']['requete'] = 'erreur method formular';
+    header('location:./?path=main&action=formInscription');
+    exit;
+}

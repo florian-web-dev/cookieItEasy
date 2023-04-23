@@ -1,0 +1,3 @@
+
+
+/?XDEBUG_SESSION_START=vscode

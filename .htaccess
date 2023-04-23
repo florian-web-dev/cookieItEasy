@@ -1,0 +1,7 @@
+php_value display_errors on
+DirectoryIndex index.php
+Options -Indexes
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
