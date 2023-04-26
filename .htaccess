@@ -1,5 +1,5 @@
 php_value display_errors on
-DirectoryIndex index.html
+DirectoryIndex index.php
 Options -Indexes
 <Files .htaccess>
 order allow,deny
