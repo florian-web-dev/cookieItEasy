@@ -33,6 +33,7 @@ ob_start();
         
 
         <form method="POST" action="?path=main&action=traitementContact" id="">
+            <p class="text-muted">Fonctionne mais desactivé pour des raison de securité</p>
             <p class="redstar">Champ obligatoire</p>
 
             <label>Prénom </label>

@@ -383,7 +383,7 @@ switch ($action) {
                         //  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                         $mail->SMTPAuth = true;
                         $mail->Username = "floriangtme@gmail.com"; //votre gmail
-                        $mail->Password = "fgtm42N!"; // mdp gmail
+                        $mail->Password = "  "; // mdp gmail
                         $mail->SMTPSecure = 'ssl';
                         $mail->setFrom('floriangtme@gmail.com', 'Formulaire de contact'); // votre gmail
                         $mail->AddAddress($email);

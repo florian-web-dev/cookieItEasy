@@ -14,21 +14,22 @@ ob_start(); ?>
         $header = 'header-' . $laCategorie->getNom();
         //var_dump($lesArticles);
         foreach ($lesArticles as $unArticle) { ?>
-            <div class="card mx-1 my-2 reveal-2" style="width: 20rem;">
+            <div class="card mx-1 my-2 reveal-2 item">
                 <img class="card-img-top" src="./public/img/articles/<?= $laCategorie->getNom() ?>/<?= $unArticle->getNom() ?>.png" alt="Card image cap">
-                <div class="card-body" style="display: flex; flex-direction:column; justify-content:space-between;">
-                    <h5 class="card-title reveal-3"><?= $unArticle->getNom() ?></h5>
-                    <p class="card-text prix reveal-3"><?= $unArticle->getPrixUnitaire() ?>€</p>
+                <div class="item-body text-center">
+                    <h5 class="item-title reveal-3"><?= $unArticle->getNom() ?></h5>
+                    <p class="item-description prix reveal-3"><?= $unArticle->getPrixUnitaire() ?>€</p>
 
-
-                    <?php
-                    if ($unArticle->getEstDisponible()) {
-                        echo "<p class='text-success'> Article diponible</p>";
-                    } else {
-                        echo "<p class='text-danger'> Article indiponible</p>";
-                    }
-                    ?>
-                    <a href="./?path=main&action=article&id=<?php echo $unArticle->getIdArticle() ?>" class="btn btn-primary">Consulter</a>
+                    <div class="field-flex">
+                        <?php
+                        if ($unArticle->getEstDisponible()) {
+                            echo "<p class='text-success'> Article diponible</p>";
+                        } else {
+                            echo "<p class='text-danger'> Article indiponible</p>";
+                        }
+                        ?>
+                        <a href="./?path=main&action=article&id=<?php echo $unArticle->getIdArticle() ?>" class="btn btn-info">Consulter</a>
+                    </div>
                 </div>
             </div>
         <?php

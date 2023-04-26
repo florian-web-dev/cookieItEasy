@@ -15,77 +15,32 @@
 
 </div>
 <section class="big-section">
-
-    <article class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 text-center margin-six-bottom">
-                <p class="pCCM">Comment ça marche ?</p>
-            </div>
-        </div>
-        <div class="row row-cols-1 row-cols-lg-3 row-cols-sm-2 justify-content-center box-shadow">
-            <!-- start info banner  -->
-            <div class="col text-center ">
-                <div class="">
-                    <div class="feature-box-icon">
-                        <img src="public\img\logo\etape1.PNG" alt="" />
-                    </div>
-                    <div class="box-content">
-                        <h3 class="">Adresse</h3>
-                        <p class="w-75 lg-w-85 mx-auto">Entrez le nom de votre rue ou laissez-nous déterminer votre position.</p>
-                    </div>
-                    <div class="feature-box-overlay bg-white border-radius-8px"></div>
-                </div>
-            </div>
-            <!-- end info banner  -->
-            <!-- start info banner  -->
-            <div class="col text-center ">
-                <div class="">
-                    <div class="feature-box-icon">
-                        <img src="public\img\logo\etape2.PNG" alt="" />
-                    </div>
-                    <div class="">
-                        <h3 class="">Sélection</h3>
-                        <p class="w-75 lg-w-85 mx-auto">Quelles sont vos envies du moment ? Parcourez les menus et les avis clients pour faire votre choix.</p>
-
-                    </div>
-                    <div class="feature-box-overlay bg-white border-radius-8px"></div>
-                </div>
-            </div>
-            <!-- end info banner  -->
-            <!-- start info banner  -->
-            <div class="col text-center">
-                <div class="">
-                    <div class="feature-box-icon">
-                        <img src="public\img\logo\etape3.PNG" alt="" />
-                    </div>
-                    <div class="">
-                        <h3 class="">Paiement et livraison</h3>
-                        <p class="w-75 lg-w-85 mx-auto">Réglez en espèces ou en ligne avec votre Carte de crédit, PayPal, Bitcoin. Bon appétit !</p>
-
-                    </div>
-                    <div class="feature-box-overlay bg-white border-radius-8px"></div>
-                </div>
-            </div>
-            <!-- end info banner  -->
-        </div>
-    </article>
-
+    <!------------------------------------------------------------------------------->
+    <!------------------------- banner "Comment ça marche" -------------------------->
+    <!------------------------------------------------------------------------------->
+    <?php
+    include_once "view/fragments/bannerHome.php";
+    ?>
+    <!------------------------------------------------------------------------------->
+    <!------------------------- banner "Comment ça marche" -------------------------->
+    <!------------------------------------------------------------------------------->
 
     <div class="space"></div>
 
 
     <article class="bg-light-gray p-1">
         <div class="space"></div>
+
         <div class="reveal">
             <h2 class="text-center reveal-1"><?= $laCategorieBurger->getNom() ?></h2>
         </div>
 
-        <div class="field-flex reveal card-deck">
+        <div class="field-flex reveal card-deck ">
 
 
             <?php foreach ($lesArticlesCatBurger as $article) : ?>
 
-                <article class="item container-fluid reveal-1">
+                <div class="item container-fluid reveal-1 box-shadow">
                     <div>
                         <div class="item-image reveal-2">
                             <img src="./public/img/articles/<?= $laCategorieBurger->getNom() ?>/<?= $article->getNom() ?>.png" alt="image 1">
@@ -105,13 +60,13 @@
                                     <a href="./?path=main&action=formLogin" class="btn btn-info">Se connecter</a>
                                     <a href="./?path=main&action=formInscription" class="btn btn-info">S'inscrire</a>
                                 <?php else : ?>
-                                    <a href="./?path=main&action=article&id=<?= $article->getIdArticle() ?>" class="btn btn-primary">Consulter</a>
+                                    <a href="./?path=main&action=article&id=<?= $article->getIdArticle() ?>" class="btn btn-info">Consulter</a>
                                 <?php endif; ?>
                             </div>
                         </div>
                     </div>
 
-                </article>
+                </div>
 
             <?php endforeach ?>
 
@@ -127,7 +82,7 @@
 
             <?php foreach ($lesArticlesCatSalade as $article2) : ?>
 
-                <article class="item container-fluid reveal-1">
+                <div class="item container-fluid reveal-1 box-shadow">
 
                     <div>
                         <div class="item-image reveal-2">
@@ -149,14 +104,14 @@
                                     <a href="./?path=main&action=formLogin" class="btn btn-info">Se connecter</a>
                                     <a href="./?path=main&action=formInscription" class="btn btn-info">S'inscrire</a>
                                 <?php else : ?>
-                                    <a href="./?path=main&action=article&id=<?= $article2->getIdArticle() ?>" class="btn btn-primary">Consulter</a>
+                                    <a href="./?path=main&action=article&id=<?= $article2->getIdArticle() ?>" class="btn btn-info">Consulter</a>
                                 <?php endif; ?>
 
                             </div>
                         </div>
                     </div>
 
-                </article>
+                </div>
 
             <?php endforeach ?>
 

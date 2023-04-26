@@ -186,6 +186,10 @@ h3, h4{
     .btn{
         margin: .5rem;
     }
+    .navbar-brand {
+        display: none !important;
+    }
     
 
 }
+
